@@ -39,7 +39,7 @@
         init.call(this);
     }
     SelectC8.prototype.destroy = function () {
-        console.log("destroy");
+        destroy.call(this);
     }
     SelectC8.prototype.getValue = function () {
         console.log("getValue");
@@ -58,13 +58,26 @@
         return source;
     }
     //:: init build of select
-    function init() {
-        if (!this.settings.element)
+    function destroy() {
+        if (!isElementValid.call(this))
             return;
-        if (this.settings.element.length === 0)
+        this.settings.documentElement = getElement.call(this);
+        clearElement(this.settings.documentElement);
+    }
+
+    function init() {
+        if (!isElementValid.call(this))
             return;
         this.settings.documentElement = getElement.call(this);
         bulidSelect.call(this);
+    }
+
+    function isElementValid() {
+        if (!this.settings.element)
+            return false;
+        if (this.settings.element.length === 0)
+            return false;
+        return true;
     }
     //:: build select
     function bulidSelect() {
@@ -147,8 +160,9 @@
     }
     //:: clear all options of select
     function clearElement(element) {
-        for (let i = 0; i < element.options.length; i++) {
-            element.options[i] = null;
+        let length = element.options.length;
+        for (let i = length - 1; i >= 0; i--) {
+            element.remove(i);
         }
     }
 }());
