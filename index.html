@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1> SELECT C8 DEMO</h1>
+
+    <h3>Example 1</h3>
+    <select name="fruits1" id="fruits1">
+        <option value="123">Alan</option>
+    </select>
+    <h3>Example 2</h3>
+    <select name="fruits2" id="fruits2">
+        <option value="123">Alan</option>
+    </select>
+
+    <h3>Example 3</h3>
+    <select name="fruits3" id="fruits3">
+        <option value="123">Alan</option>
+    </select>
+    <h3>Example 4</h3>
+    <input type="text" value="lorem lorem lorem" name="fruits4" id="fruits4">
+
+    <script src="selectc8.js"></script>
+    <script>
+        let fruit1 = ["Apple", "Banana", "Grapes", "Watermelon"];
+        let select1 = new SelectC8({
+            element: document.getElementById("fruits1"),
+            assignWithoutProperties: true,
+            list: fruit1,
+            appendDefaultFirstOption: false,
+            onSuccess: onSuccess
+        });
+
+        function HiC8() {
+            console.log(this, this.value, this.options[this.selectedIndex].text);
+        }
+
+        function onSuccess(data) {
+            console.log(this, data);
+        }
+
+        select1.fill({
+            onChange: HiC8
+        });
+
+        let fruits2 = [{
+                id: 1,
+                name: "Apple"
+            },
+            {
+                id: 2,
+                name: "Banana"
+            },
+            {
+                id: 3,
+                name: "Grapes"
+            },
+            {
+                id: 4,
+                name: "Watermelon"
+            }
+        ];
+
+        let select2 = new SelectC8({
+            element: "fruits2"
+        });
+        select2.fill({
+            list: fruits2,
+            onChange: HiC8,
+            onSuccess: onSuccess
+        });
+
+
+        let fruits3 = [{
+                id: 1,
+                name: "Apple",
+                family: "Rosaceae"
+            },
+            {
+                id: 2,
+                name: "Lemon",
+                family: "Rutaceae"
+            },
+            {
+                id: 3,
+                name: "Mango",
+                family: "Anacardiaceae"
+            },
+            {
+                id: 4,
+                name: "Watermelon",
+                family: "Cucurbitaceae"
+            }
+        ];
+
+        let select3 = new SelectC8({
+            element: "fruits3",
+            list: fruits3,
+            dataExtended: "family"
+        });
+        select3.fill({
+            selectedValue: 3
+        });
+
+
+
+
+        let select4 = new SelectC8({
+            element: "fruits4",
+            list: []
+        });
+        select4.fill();
+    </script>
+</body>
+
+</html>
