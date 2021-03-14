@@ -1,5 +1,5 @@
 # SelectC8
-SelectC8 is a library to make filling <select> more user friendly.
+SelectC8 is a library to make <select> more user friendly.
 
 
 ## Content
