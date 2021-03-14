@@ -13,7 +13,7 @@ let selectFruit = new SelectC8({
  });
  
  selectFruit.fill({
-            list:fruit
+            list: fruit
  });
 ```
  
