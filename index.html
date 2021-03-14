@@ -41,6 +41,7 @@
 
         function HiC8() {
             console.log(this, this.value, this.options[this.selectedIndex].text);
+            console.log("selected value", select1.getValue());
         }
 
         function onSuccess(data) {
@@ -107,12 +108,13 @@
             dataExtended: "family"
         });
         select3.fill({
-            selectedValue: 3
+            selectedValue: 1
         });
 
-        select3.destroy();
+        // select3.destroy();
 
-
+        // select3.setValue(3);
+        console.log("selected value", select3.getValue());
 
 
         let select4 = new SelectC8({

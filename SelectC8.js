@@ -4,7 +4,6 @@
  * https://github.com/jacms
  * @version 1.0.0
  * @author jacms-c8
- * @license jacms
  */
 (function () {
     //:: constructor
@@ -42,10 +41,10 @@
         destroy.call(this);
     }
     SelectC8.prototype.getValue = function () {
-        console.log("getValue");
+        return getValue.call(this);
     }
-    SelectC8.prototype.setValue = function () {
-        console.log("setValue");
+    SelectC8.prototype.setValue = function (value) {
+        setValue.call(this, value);
     }
     //:: private methods
     function extendDefaults(source, properties) {
@@ -63,6 +62,20 @@
             return;
         this.settings.documentElement = getElement.call(this);
         clearElement(this.settings.documentElement);
+    }
+
+    function setValue(value) {
+        if (value === undefined)
+            return;
+        if (!isElementValid.call(this))
+            return;
+        this.settings.documentElement.value = value;
+    }
+
+    function getValue() {
+        if (!isElementValid.call(this))
+            return undefined;
+        return this.settings.documentElement.value;
     }
 
     function init() {
