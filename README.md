@@ -1,9 +1,10 @@
   
 # SelectC8
-SelectC8 is a library to make **select** more user friendly.
+
+SelectC8 es una librería que hace el uso de *select* más sencillo.
 
 ## Demo
-If you want to see the demo of this library, you can visit [SelectC8](https://jacms.github.io/Select-C8).
+Si deseas ver mas a detalle el uso de esta librería, puedes visitar  [SelectC8](https://jacms.github.io/Select-C8).
  
  ``` javascript
 let fruit = ["Apple", "Banana", "Grapes", "Watermelon"];
@@ -17,5 +18,5 @@ let selectFruit = new SelectC8({
  });
 ```
  
-## Credits
+## Creditos
 * Build by [jacms](https://github.com/jacms).
