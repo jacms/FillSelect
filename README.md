@@ -3,7 +3,7 @@
 
 SelectC8 es una librería que hace el uso del elemento select más sencillo.
 
-__La idea base de este componente es llenar de manera dinámica los controles select en tu aplicación, centralizando código y haciendo tus llamadas más limpias, puedes utilizarlo dentro de peticiones ajax, o en tu funciones con json listos para ser utilizados.__
+>*La idea base de este componente es llenar de manera dinámica los controles select en tu aplicación, centralizando código y haciendo tus llamadas más limpias, puedes utilizarlo >dentro de peticiones ajax, o en tu funciones con json listos para ser utilizados.*
 
 ## Demo
 Si deseas ver mas a detalle el uso de esta librería, puedes visitar  [SelectC8](https://jacms.github.io/Select-C8).
