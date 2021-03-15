@@ -9,11 +9,9 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/styles/androidstudio.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/highlight.min.js"></script>
-
     <script>
         hljs.highlightAll();
     </script>
@@ -21,39 +19,125 @@
 
 <body class="bg-light">
     <div class="container mt-5 p-4 bg-white">
-        <h1> Select C8 <small>(v1.0.0)</small></h1>
-        <p> SelectC8 is a library to make select more user friendly.</p>
-        <h3>Example 1</h3>
-        <select class="custom-select" name="example1" id="example1">
-        </select>
+        <h1> SelectC8 <small>(v1.0.0)</small></h1>
+        <p> <strong>SelectC8</strong> es una librería que hace el uso del elemento <code>select</code> más sencillo.</p>
+        <p>
+            con la configuración de propiedades y manejo de eventos puedes ahorrar tiempo en la ejecución de tu
+            funcionalidad y evitas tener las mismas líneas de código por toda tu aplicación.
+        </p>
+        <blockquote class="blockquote ">
+            <footer class="blockquote-footer"> La idea base de este componente es llenar de manera dinámica los
+                controles <code>select</code> en tu aplicación,
+                centralizando código y haciendo tus llamadas más limpias, puedes utilizarlo dentro de peticiones ajax, o
+                en tu funciones con json listos para ser utilizados.
+            </footer>
+        </blockquote>
+        <a class="btn btn-primary btn-sm" href="https://github.com/jacms/Select-C8/releases" role="button">descargar</a>
+        <a class="btn btn-light btn-sm" href="https://github.com/jacms/Select-C8" role="button">Proyecto</a>
+        <h2 class="mt-3">Instalación</h2>
+        <hr>
+        <p>Realiza la referencia de SelectC8 en tu proyecto la cual la puedes obtener desde el repositorio de github <a
+                href="https://github.com/jacms/Select-C8/releases" title="Select-C8">jacms/Select-C8</a></p>
+        <pre><code>&lt;script src="selectc8.min.js"&gt;&lt;/script&gt;</code></pre>
+        <h2>Documentación del componente</h2>
+        <hr>
+        <p>
+            La siguiente configuración le vida a la librería selectC8 en la cual podrás manejar eventos y propiedades
+            facilitando la utilización de comportamientos de tu select.
+        </p>
+        <h3>Configuración</h3>
+        <div id="accordion">
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
+                            aria-expanded="true" aria-controls="collapseOne">
+                            Detalle de configuración
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseOne" class="collapse " aria-labelledby="headingOne" data-parent="#accordion">
+                    <div class="card-body">
+                        <pre><code>element: null</code></pre>
+                        <p>Define el selector de tu control <code>select</code> el cual soporta el nombre del Id en
+                            “string” o el
+                            control directo llamado como <code>document.getElementById()</code>, es un valor requerido.
+                        </p>
+                        <hr>
+                        <pre><code>data: []</code></pre>
+                        <p>Array de objetos con el cual SlectC8 generará las opciones en tu <code>select</code>, puede
+                            ser compuesto por un simple <code>array</code> de strings o un <code>array</code> de de
+                            objetos con propiedades para poblar tu control. Es un valor requerido. </p>
+                        <h6>Ejemplo.</h6>
+                        <pre><code> let fruits = [{id: 1,name: "Apple"},{id: 2,name: "Banana"},{id: 3,name: "Grapes"},{id: 4,name: "Watermelon"}];
+ let fruits = [{id: 1,name: "Apple"},{id: 2,name: "Banana"}];</code></pre>
+                        <hr>
+                        <pre><code>valueProperty: "id", textProperty: "name"</code></pre>
+                        <p>Estos dos valores al momento de enviar un array definen cuál será tu <code>value</code> y
+                            <code>text</code> en los <code>option</code> de tu control, es importante tomarlos en cuenta
+                            cuando se manda un array complex o personalizado.
+                        </p>
+                        <hr>
+                        <pre><code>dataExtended: null</code></pre>
+                        <p>Propiedad que define un atributo extra en cada <code>option</code> de tu control, si
+                            requieres un valor adicional a value y text, esta opción te brinda el manejo de una
+                            propiedad extra.
+                        </p>
+                        <hr>
+                        <pre><code>selectedValue: null</code></pre>
+                        <p>configuración la cual te ayuda a colocar de manera predeterminada una opción seleccionada al
+                            momento de hacer realizar la carga inicial del control.</p>
+                        <hr>
+                        <pre><code>assignWithoutProperties: false</code></pre>
+                        <p>configuración que determina si el arreglo que envías en la propiedad data utilizará
+                            propiedades o no. </p>
+                        <hr>
+                        <pre><code> defaultFirstOptionValue: "", defaultFirstOptionText: "-- Select option --"</code></pre>
+                        <p>Estos dos valores al momento de inicializar tu control SelectC8 asignan un valor inicial en
+                            tu <code>select</code>.
+                        </p>
+                        <hr>
+                        <pre><code>onChange</code></pre>
+                        <p>Defines con una función de tipo callback lo acción que deseas hacer cada vez que cambies el
+                            valor seleccionado en tu <code>select</code>. </p>
+                        <hr>
+                        <pre><code>onSuccess</code></pre>
+                        <p>Función de tipo callback la cual te permite realizar algun evento una vez que el control se
+                            renderice.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
         <pre>
-            <code class="language-javascript">
-    let fruits = [{id: 1,name: "Apple"},{id: 2,name: "Banana"},{id: 3,name: "Grapes"},{id: 4,name: "Watermelon"}];
-
-    let example1 = new SelectC8({
-        element: "example1",
-        list: fruits,
-    });
-
-    example1.fill();
-            </code>
-        </pre>
-
-        <!-- <h3>Example 2</h3>
-        <select name="fruits2" id="fruits2">
-            <option value="123">Alan</option>
-        </select>
-        <h3>Example 3</h3>
-        <select name="fruits3" id="fruits3">
-            <option value="123">Alan</option>
-        </select>
-        <h3>Example 4</h3>
-        <input type="text" value="lorem lorem lorem" name="fruits4" id="fruits4"> -->
-    </div>
-
-    <script src="https://github.com/jacms/Select-C8/blob/main/SelectC8.min.js"></script>
-    <script>
-        let fruits = [{
+    <code class="language-javascript">
+        var defaults = {
+            element: null,
+            data: [],
+            valueProperty: "id",
+            textProperty: "name",
+            dataExtended: null,
+            selectedValue: null,
+            assignWithoutProperties: false,
+            appendDefaultFirstOption: true,
+            defaultFirstOptionValue: "",
+            defaultFirstOptionText: "-- Select option --",
+            onChange: null,
+            onSuccess: function () {
+                return false
+            }
+        };
+     </code>
+    </pre>
+        <h2>Demo</h2>
+        <hr>
+        <p>Se describe como puedes utilizar el control <strong>SelectC8</strong> en tu proyecto</p>
+        <h4>Ejemplo 1</h3>
+            <select class="custom-select mb-4" name="example1" id="example1"></select>
+            <pre><code class="language-xml"> &lt;select class="custom-select" name="example1" id="example1"&gt;&lt;/select&gt;</code></pre>
+            <pre>
+            <code class="language-javascript"> 
+      const fruits = [{
                 id: 1,
                 name: "Apple"
             },
@@ -70,93 +154,248 @@
                 name: "Watermelon"
             }
         ];
-        // let fruits = ["Apple", "Banana", "Grapes", "Watermelon"];
-        let example1 = new SelectC8({
+        let selectC8_e1 = new SelectC8({
             element: "example1",
-            list: fruits,
+            data: fruits,
+            valueProperty: "id",
+            textProperty: "name",
         });
-        example1.fill();
-        // let select1 = new SelectC8({
-        //     element: document.getElementById("fruits1"),
-        //     assignWithoutProperties: true,
-        //     list: fruit1,
-        //     appendDefaultFirstOption: false,
-        //     onSuccess: onSuccess
-        // });
-        // function HiC8() {
-        //     console.log(this, this.value, this.options[this.selectedIndex].text);
-        //     console.log("selected value", select1.getValue());
-        // }
-        // function onSuccess(data) {
-        //     console.log(this, data);
-        // }
-        // select1.fill({
-        //     onChange: HiC8
-        // });
-        // let fruits2 = [{
-        //         id: 1,
-        //         name: "Apple"
-        //     },
-        //     {
-        //         id: 2,
-        //         name: "Banana"
-        //     },
-        //     {
-        //         id: 3,
-        //         name: "Grapes"
-        //     },
-        //     {
-        //         id: 4,
-        //         name: "Watermelon"
-        //     }
-        // ];
-        // let select2 = new SelectC8({
-        //     element: "fruits2"
-        // });
-        // select2.fill({
-        //     list: fruits2,
-        //     onChange: HiC8,
-        //     onSuccess: onSuccess
-        // });
-        // let fruits3 = [{
-        //         id: 1,
-        //         name: "Apple",
-        //         family: "Rosaceae"
-        //     },
-        //     {
-        //         id: 2,
-        //         name: "Lemon",
-        //         family: "Rutaceae"
-        //     },
-        //     {
-        //         id: 3,
-        //         name: "Mango",
-        //         family: "Anacardiaceae"
-        //     },
-        //     {
-        //         id: 4,
-        //         name: "Watermelon",
-        //         family: "Cucurbitaceae"
-        //     }
-        // ];
-        // let select3 = new SelectC8({
-        //     element: "fruits3",
-        //     list: fruits3,
-        //     dataExtended: "family"
-        // });
-        // select3.fill({
-        //     selectedValue: 1
-        // });
-        // // select3.destroy();
-        // // select3.setValue(3);
-        // console.log("selected value", select3.getValue());
-        // let select4 = new SelectC8({
-        //     element: "fruits4",
-        //     list: []
-        // });
-        // select4.fill();
+        selectC8_e1.fill();
+            </code>
+        </pre>
+            <h4>Ejemplo 2</h4>
+            <select class="custom-select mb-4" name="example2" id="example2"></select>
+            <pre><code class="language-xml"> &lt;select class="custom-select" name="example2" id="example2"&gt;&lt;/select&gt;</code></pre>
+            <pre><code class="language-javascript">
+        const fruits2 = ["Apple", "Banana", "Grapes", "Watermelon"];
+        let selectC8_e2 = new SelectC8({
+            element: document.getElementById("example2"),
+            assignWithoutProperties: true,
+            appendDefaultFirstOption: false
+        });
+        selectC8_e2.fill({
+            data: fruits2
+        });
+            </code></pre>
+            <h4>Ejemplo 3</h4>
+            <select class="custom-select mb-4" name="example3" id="example3"></select>
+            <pre><code class="language-xml"> &lt;select class="custom-select" name="example3" id="example4"&gt;&lt;/select&gt;</code></pre>
+            <pre><code class="language-javascript">
+        const fruits3 = [{
+                id: 1,
+                name: "Apple",
+                family: "Rosaceae"
+            },
+            {
+                id: 2,
+                name: "Lemon",
+                family: "Rutaceae"
+            },
+            {
+                id: 3,
+                name: "Mango",
+                family: "Anacardiaceae"
+            },
+            {
+                id: 4,
+                name: "Watermelon",
+                family: "Cucurbitaceae"
+            }
+        ];
+        let selectC8_e3 = new SelectC8({
+            element: "example3",
+        });
+        selectC8_e3.fill({
+            data: fruits3,
+            dataExtended: "family",
+            selectedValue: 3
+        }); 
+            </code></pre>
+            <h4>Ejemplo 4</h4>
+            <select class="custom-select mb-4" name="example4" id="example4"></select>
+            <pre><code class="language-xml"> &lt;select class="custom-select" name="example4" id="example4"&gt;&lt;/select&gt;</code></pre>
+            <pre><code class="language-javascript">
+        const fruits4 = [{
+                id: 1,
+                name: "Apple"
+            },
+            {
+                id: 2,
+                name: "Banana"
+            },
+            {
+                id: 3,
+                name: "Grapes"
+            },
+            {
+                id: 4,
+                name: "Watermelon"
+            }
+        ];
+        let selectC8_e4 = new SelectC8({
+            element: "example4",
+            valueProperty: "id",
+            textProperty: "name"
+        });
+        selectC8_e4.fill({
+            data: fruits4,
+            onChange: onChangeC8
+        });
+        function onChangeC8() {
+            console.log(this.value, this.options[this.selectedIndex].text);
+            alert(this.options[this.selectedIndex].text);
+        }
+            </code></pre>
+            <h2>Funciones publicas</h2>
+            <hr>
+            <h4>fill()</h4>
+            <p>Función que se inicializa la carga del control <code>select</code>, puede ser ejecutada cuando desees
+                dentro de tu código, precondición que esté inicializado un componente <strong>SelectC8</strong>.
+                <pre><code>
+        let selectC8 = new SelectC8({
+            element: "example1",
+            data: data
+        });
+        selectC8.fill();
+            </code></pre>
+            </p>
+            <h4>destroy()</h4>
+            <p>Se encarga de destruir tu control eliminando todas las <code>option</code> que se tengan, precondición
+                que esté inicializado un componente <strong>SelectC8</strong>.</p>
+            <pre><code>
+        let selectC8 = new SelectC8({
+            element: "example1",
+            data: data
+        });
+        selectC8.destroy();
+            </code></pre>
+            <h4>getValue()</h4>
+            <p>Obtiene el valor seleccionado de tu control <code>select</code>, precondición que esté inicializado un
+                componente <strong>SelectC8</strong>.
+            </p>
+            <pre><code>
+        let selectC8 = new SelectC8({
+            element: "example1",
+            data: data
+        });
+        selectC8.getValue();
+            </code></pre>
+            <h4>setValue()</h4>
+            <p>Define el valor que quieres que tenga tu control <code>select</code> en cualquier momento de tu código,
+                precondición que esté inicializado un componente <strong>SelectC8</strong>.</p>
+            <pre><code>
+        let selectC8 = new SelectC8({
+            element: "example1",
+            data: data
+        });
+        selectC8.setValue(value);
+            </code></pre>
+
+            <h2>Creditos</h2>
+            <hr>
+            <ul>
+                <li>Concept and development by <a title="jacms" href="https://github.com/jacms">jacms</a></li>
+
+            </ul>
+            <hr>
+            <div class="text-center">© 2021 jacms. SelectC8. </div>
+    </div>
+    <script src="selectc8.js"></script>
+    <script>
+        const fruits = [{
+                id: 1,
+                name: "Apple"
+            },
+            {
+                id: 2,
+                name: "Banana"
+            },
+            {
+                id: 3,
+                name: "Grapes"
+            },
+            {
+                id: 4,
+                name: "Watermelon"
+            }
+        ];
+        let selectC8_e1 = new SelectC8({
+            element: "example1",
+            data: fruits,
+            valueProperty: "id",
+            textProperty: "name",
+        });
+        selectC8_e1.fill();
+        const fruits2 = ["Apple", "Banana", "Grapes", "Watermelon"];
+        let selectC8_e2 = new SelectC8({
+            element: document.getElementById("example2"),
+            assignWithoutProperties: true,
+            appendDefaultFirstOption: false
+        });
+        selectC8_e2.fill({
+            data: fruits2
+        });
+        const fruits3 = [{
+                id: 1,
+                name: "Apple",
+                family: "Rosaceae"
+            },
+            {
+                id: 2,
+                name: "Lemon",
+                family: "Rutaceae"
+            },
+            {
+                id: 3,
+                name: "Mango",
+                family: "Anacardiaceae"
+            },
+            {
+                id: 4,
+                name: "Watermelon",
+                family: "Cucurbitaceae"
+            }
+        ];
+        let selectC8_e3 = new SelectC8({
+            element: "example3",
+        });
+        selectC8_e3.fill({
+            data: fruits3,
+            dataExtended: "family",
+            selectedValue: 3
+        });
+        const fruits4 = [{
+                id: 1,
+                name: "Apple"
+            },
+            {
+                id: 2,
+                name: "Banana"
+            },
+            {
+                id: 3,
+                name: "Grapes"
+            },
+            {
+                id: 4,
+                name: "Watermelon"
+            }
+        ];
+        let selectC8_e4 = new SelectC8({
+            element: "example4",
+            valueProperty: "id",
+            textProperty: "name"
+        });
+        selectC8_e4.fill({
+            data: fruits4,
+            onChange: onChangeC8
+        });
+
+        function onChangeC8() {
+            console.log(this.value, this.options[this.selectedIndex].text);
+            alert(this.options[this.selectedIndex].text);
+        }
     </script>
-    <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">

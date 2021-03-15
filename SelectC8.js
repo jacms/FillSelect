@@ -9,9 +9,9 @@
     //:: constructor
     this.SelectC8 = function () {
         //:: global elements
-        var defaults = {
+        let defaults = {
             element: null,
-            list: [],
+            data: [],
             valueProperty: "id",
             textProperty: "name",
             dataExtended: null,
@@ -88,8 +88,6 @@
     function isElementValid() {
         if (!this.settings.element)
             return false;
-        if (this.settings.element.length === 0)
-            return false;
         return true;
     }
     //:: build select
@@ -134,7 +132,7 @@
     }
 
     function appendOptions() {
-        if (!this.settings.list)
+        if (!this.settings.data && !Array.isArray(this.settings.data))
             return;
         let values = getPropertyValues.call(this);
         values.forEach(object => {
@@ -146,12 +144,12 @@
             }
             this.settings.documentElement.add(option);
         });
-        this.settings.onSuccess(this.settings.list);
+        this.settings.onSuccess(this.settings.data);
     }
 
     function getPropertyValues() {
         let values = [];
-        this.settings.list.forEach(object => {
+        this.settings.data.forEach(object => {
             let optionValue;
             if (this.settings.assignWithoutProperties === false) {
                 optionValue = {
