@@ -38,4 +38,5 @@ Si deseas ver mas a detalle el uso de esta librería, puedes visitar  [SelectC8]
 ```
  
 ## Creditos
-* Concept and development by [jacms](https://github.com/jacms).
+* Concept and development by [jacms](https://github.com/jacms) & [reneezy87](https://github.com/Reneezy87).
+* By ArtisCode

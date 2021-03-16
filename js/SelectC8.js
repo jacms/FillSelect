@@ -1,9 +1,9 @@
 /**
  * SelectC8
- * @Copyright: Alan Mtz 
+ * @Copyright: Alan Mtz & Rene Mtz
  * https://github.com/jacms
  * @version 1.0.0
- * @author jacms-c8
+ * @author jacms & reneezy
  */
 (function () {
     //:: constructor
